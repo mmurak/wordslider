@@ -1,0 +1,57 @@
+html,body{
+	width: 100%;
+	height: auto;
+	margin: 0;
+	padding: 0;
+}
+header{
+	position: sticky;
+	top: 0;
+	padding: 5px;
+	background-color: #ffffff;
+	z-index: 100;
+}
+#Buttons{
+	float: right;
+	width: 50%;
+}
+.FWB{
+	width: 30%;
+}
+#TextDialog{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 80%;
+	overflow: auto;
+	display: none;
+	background-color:  #ffffff;
+	z-index: 100;
+}
+#TextDialogContent{
+	margin: 5% auto;
+	width: 90%;
+	height: 70%;
+	padding: 2em;
+	box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+	animation-name: modalopen;
+	animation-duration: 1.0s;
+}
+@keyframes modalopen {
+	from {opacity: 0}
+	to {opacity: 1}
+}
+#InputField{
+	width: 100%;
+	height: 95%;
+}
+#OuterFrame{
+	padding: 10px;
+}
+td{
+	border: 1px #000000 solid;
+}
+table{
+	border-collapse: collapse;
+}

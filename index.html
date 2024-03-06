@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Word Slider</title>
+		<link rel="shortcut icon" href="./kiwi-bird-blue.png">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<link href="./wordslider.css" rel="stylesheet" type="text/css" media="all">
+	</head>
+	<body>
+		<header>
+			<span>
+				<input type="button" value="Enter text (Ctrl+Enter)" onclick="openEntryDialog();"></input>
+				<!--label for="CursorVisible">
+				<input type="checkbox" id="CursorVisible" checked></input>
+				Cursor Visible</label-->
+				<label id="CommandArea"></label>
+			</span>
+			<span id="Buttons">
+				<input type="button" class="FWB" value="↑" onclick="arrowUp();"></input>
+				<input type="button" class="FWB" value="←" onclick="arrowLeft();"></input>
+				<input type="button" class="FWB" value="→" onclick="arrowRight();"></input><br/>
+				<input type="button" class="FWB" value="↓" onclick="arrowDown();"></input>
+				<input type="button" class="FWB" value="+" onclick="mergeWords();"></input>
+				<input type="button" class="FWB" value="/" onclick="explodeWord()"></input><br/>
+				<input type="button" id="ButtonRed" class="FWB" value="R" onclick="toggleRed();"></input>
+				<input type="button" id="ButtonGreen" class="FWB" value="G" onclick="toggleGreen();"></input>
+				<input type="button" id="ButtonBlue" class="FWB" value="B" onclick="toggleBlue();"></input>
+			</span>
+		</header>
+
+		<div id="OuterFrame">
+			<table id="TableArea"></table>
+		</div>
+
+		<div id="TextDialog">
+			<div id="TextDialogContent">
+				<textarea id="InputField"></textarea>
+				<br/>
+				<input type="button" class="widgets" value="Cancel (Esc)" onclick="cancelEntryDialog()"></input>
+				<input type="button" class="widgets" value="OK (Ctrl+Enter)" onclick="okEntryDialog()"></input>
+			</div>
+		</div>
+
+		<script src="./wordslider.js"></script>
+
+	</body>
+</html>

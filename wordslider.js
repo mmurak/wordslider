@@ -15,9 +15,9 @@ class GlobalManager {
 		this.slate = 0xbbbbbb;
 		this.white = 0xffffff;
 		this.black = 0x000000;
-		this.red = 0xaa4444;
-		this.green = 0x44aa44;
-		this.blue = 0x4444aa;
+		this.red = 0xff0000;
+		this.green = 0x009900;
+		this.blue = 0x0000ff;
 		this.highlightColor = 0x333333;
 		this.backgroundColorArray = [];
 	}
@@ -262,16 +262,29 @@ function colorCell(backColor, row, col) {
 
 function colorString(color) {
 	let val  = 0;
-	if (color & 1) val += G.red;
-	if (color & 2) val += G.green;
-	if (color & 4) val += G.blue;
-	if (color & 16) {
-		if (val == 0) {
-			val = G.slate;
-		} else {
-			val += G.highlightColor;
-		}
+	let mixed = 0;
+	if (color & 1) {
+		val += G.red;
+		mixed++;
 	}
-	if (val == 0) val = G.white;
-	return "#" + ("000000" + val.toString(16)).slice(-6);
+	if (color & 2) {
+		val += G.green;
+		mixed++;
+	}
+	if (color & 4) {
+		val += G.blue;
+		mixed++;
+	}
+	let newColor;
+	if (val == 0) {
+		newColor = 0xffffff;
+	} else {
+		newColor = Math.trunc((val >>> 16) / mixed * 65536) +
+			Math.trunc(((val & 0xff00) >>> 8) / mixed * 256) +
+			(val & 0xff);
+	}
+	if (color & 16) {
+		newColor = newColor & (~G.highlightColor);
+	}
+	return "#" + ("000000" + newColor.toString(16)).slice(-6);
 }

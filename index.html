@@ -16,17 +16,24 @@
 				Cursor Visible</label-->
 				<label id="CommandArea"></label>
 			</span>
-			<span id="Buttons">
-				<input type="button" class="FWB" value="↑" onclick="arrowUp();"></input>
-				<input type="button" class="FWB" value="←" onclick="arrowLeft();"></input>
-				<input type="button" class="FWB" value="→" onclick="arrowRight();"></input><br/>
-				<input type="button" class="FWB" value="↓" onclick="arrowDown();"></input>
-				<input type="button" class="FWB" value="+" onclick="mergeWords();"></input>
-				<input type="button" class="FWB" value="/" onclick="explodeWord()"></input><br/>
-				<input type="button" id="ButtonRed" class="FWB" value="R" onclick="toggleRed();"></input>
-				<input type="button" id="ButtonGreen" class="FWB" value="G" onclick="toggleGreen();"></input>
-				<input type="button" id="ButtonBlue" class="FWB" value="B" onclick="toggleBlue();"></input>
-			</span>
+			<div id="Buttons">
+				<span>
+					<input type="button" id="ButtonRed" class="FWB" value="R" onclick="toggleRed();"></input>
+					<input type="button" id="ButtonGreen" class="FWB" value="G" onclick="toggleGreen();"></input>
+					<input type="button" id="ButtonBlue" class="FWB" value="B" onclick="toggleBlue();"></input>
+					<input type="button" class="FWB" value="/" onclick="explodeWord()"></input>
+				</span>
+				<div style="float:right">
+					<div class="cross-layout">
+						<button class="position-top cross-key-btn" onclick="arrowUp();"><span class="top-mark">▲</span></button>
+						<button class="position-left cross-key-btn" onclick="arrowLeft();"><span class="left-mark">▲</span></button>
+						<button class="position-center cross-key-btn" onclick="mergeWords();"><span class="center-mark">＋</span></button>
+						<button class="position-right cross-key-btn" onclick="arrowRight();"><span class="right-mark">▲</span></button>
+						<button class="position-bottom cross-key-btn" onclick="arrowDown();"><span class="bottom-mark">▲</span></button>
+					</div>
+				</div>
+
+			</div>
 		</header>
 
 		<div id="OuterFrame">

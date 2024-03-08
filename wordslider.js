@@ -1,7 +1,7 @@
 class GlobalManager {
 	constructor() {
 		this.commandArea = document.getElementById("CommandArea");
-//		this.cursorVisible = document.getElementById("CursorVisible");
+		this.cursorVisible = document.getElementById("CursorVisible");
 		this.buttonRed = document.getElementById("ButtonRed");
 		this.buttonGreen = document.getElementById("ButtonGreen");
 		this.buttonBlue = document.getElementById("ButtonBlue");
@@ -15,10 +15,10 @@ class GlobalManager {
 		this.slate = 0xbbbbbb;
 		this.white = 0xffffff;
 		this.black = 0x000000;
-		this.red = 0xff0000;
-		this.green = 0x009900;
-		this.blue = 0x0000ff;
-		this.highlightColor = 0x333333;
+		this.red = 0xee0000;
+		this.green = 0x00cc00;
+		this.blue = 0x0000cc;
+		this.highlightColor = 0x555555;
 		this.backgroundColorArray = [];
 	}
 }
@@ -39,6 +39,7 @@ function okEntryDialog() {
 	loadArray();
 	G.textDialog.style.display = "none";
 	G.commandArea.innerHTML = "";
+	setButtonColors();
 }
 
 function loadArray() {
@@ -283,7 +284,7 @@ function colorString(color) {
 			Math.trunc(((val & 0xff00) >>> 8) / mixed * 256) +
 			(val & 0xff);
 	}
-	if (color & 16) {
+	if ((G.cursorVisible.checked) && (color & 16)) {
 		newColor = newColor & (~G.highlightColor);
 	}
 	return "#" + ("000000" + newColor.toString(16)).slice(-6);

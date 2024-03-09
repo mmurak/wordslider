@@ -203,7 +203,15 @@ function mergeWords() {
 
 function explodeWord() {
 	if (G.dataArray.length == 0) return;
-	let tokenArray = G.dataArray[G.currentRow][G.currentColumn].split(/\s+/);
+// TAIL CUTTER
+//	let tokenArray = G.dataArray[G.currentRow][G.currentColumn].split(/\s+/);
+	let tokenArray = G.dataArray[G.currentRow][G.currentColumn].match(/^(.+?)\s+(\S+)$/);
+	if (tokenArray != null)  {
+		tokenArray.shift();
+	} else {
+		return;
+	}
+//
 	let depth = G.dataArray[G.currentRow].length - 1;
 	G.dataArray[G.currentRow][G.currentColumn] = tokenArray.shift();
 	let counter = 1;
